@@ -46,7 +46,15 @@ function App() {
   const [entryTransition, setEntryTransition] = useState<EntryTransition>('none')
 
   useEffect(() => {
-    setSessionEmail(getSessionEmail() ?? '')
+    const saved = getSessionEmail() ?? ''
+    // Auto-login when receiving an import from the Offer Radar
+    if (!saved && window.location.hash.startsWith('#import=')) {
+      const autoEmail = 'roimax@import'
+      saveSessionEmail(autoEmail)
+      setSessionEmail(autoEmail)
+    } else {
+      setSessionEmail(saved)
+    }
   }, [])
 
   const filteredFunnels = funnels.filter((funnel) => {
