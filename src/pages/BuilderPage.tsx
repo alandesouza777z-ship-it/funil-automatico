@@ -10,6 +10,7 @@ interface BuilderPageProps {
   selectedNode: FunnelNode | undefined
   onAddNode: (kind: NodeKind) => void
   onSelectNode: (nodeId: string | null) => void
+  onDeleteNode: (nodeId: string) => void
   onNodesChange: Parameters<typeof FunnelCanvas>[0]['onNodesChange']
   onEdgesChange: Parameters<typeof FunnelCanvas>[0]['onEdgesChange']
   onConnect: Parameters<typeof FunnelCanvas>[0]['onConnect']
@@ -22,6 +23,7 @@ export function BuilderPage({
   selectedNode,
   onAddNode,
   onSelectNode,
+  onDeleteNode,
   onNodesChange,
   onEdgesChange,
   onConnect,
@@ -45,7 +47,6 @@ export function BuilderPage({
 
   return (
     <div className="builder">
-      {/* Top toolbar */}
       <header className="builder__toolbar">
         <div className="builder__toolbar-left">
           <h2 className="builder__funnel-name">{funnel.name}</h2>
@@ -55,6 +56,18 @@ export function BuilderPage({
         </div>
 
         <div className="builder__toolbar-right">
+          {selectedNode && (
+            <button
+              type="button"
+              className="btn btn--danger btn--toolbar"
+              onClick={() => {
+                onDeleteNode(selectedNode.id)
+                onSelectNode(null)
+              }}
+            >
+              🗑 Remover
+            </button>
+          )}
           <button
             type="button"
             className={`btn btn--toolbar ${showLibrary ? 'btn--toolbar-active' : ''}`}
@@ -72,7 +85,6 @@ export function BuilderPage({
         </div>
       </header>
 
-      {/* Library drawer */}
       <AnimatePresence>
         {showLibrary && (
           <motion.div
@@ -87,7 +99,6 @@ export function BuilderPage({
         )}
       </AnimatePresence>
 
-      {/* Canvas + Inspector */}
       <div className={`builder__workspace ${showInspector ? 'builder__workspace--with-inspector' : ''}`}>
         <div className="builder__canvas-area">
           <FunnelCanvas
@@ -115,6 +126,7 @@ export function BuilderPage({
                 selectedNode={selectedNode}
                 onUpdateMeta={onUpdateMeta}
                 onUpdateNode={onUpdateNode}
+                onDeleteNode={onDeleteNode}
               />
             </motion.aside>
           )}

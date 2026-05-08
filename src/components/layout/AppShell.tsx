@@ -23,13 +23,20 @@ export function AppShell({ activeView, sessionEmail, onChangeView, onCreateFunne
         <div className="sidebar__brand">
           <div className="brand-logo">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <path d="M4 6 L14 22 L24 6 Z" fill="white" opacity="0.9"/>
-              <path d="M8 6 L14 16 L20 6 Z" fill="white" opacity="0.5"/>
+              <defs>
+                <linearGradient id="goldGrad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#f0d060"/>
+                  <stop offset="50%" stopColor="#d4af37"/>
+                  <stop offset="100%" stopColor="#b8962e"/>
+                </linearGradient>
+              </defs>
+              <path d="M4 6 L14 22 L24 6 Z" fill="url(#goldGrad)" opacity="0.95"/>
+              <path d="M8 6 L14 16 L20 6 Z" fill="url(#goldGrad)" opacity="0.5"/>
             </svg>
           </div>
           <div className="brand-text">
-            <span className="brand-name">Funnelby</span>
-            <span className="brand-tag">Canvas Builder</span>
+            <span className="brand-name">RoiMax</span>
+            <span className="brand-tag">System Funnels</span>
           </div>
         </div>
 
@@ -49,8 +56,8 @@ export function AppShell({ activeView, sessionEmail, onChangeView, onCreateFunne
 
         <div className="sidebar__spacer" />
 
-        <button type="button" className="btn btn--primary sidebar__create" onClick={onCreateFunnel}>
-          <span>+</span>
+        <button type="button" className="btn btn--gold sidebar__create" onClick={onCreateFunnel}>
+          <span>✦</span>
           Novo Funil
         </button>
 

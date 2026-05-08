@@ -34,19 +34,26 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         <div className="login-card__brand">
           <div className="brand-logo brand-logo--lg">
             <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-              <path d="M4 6 L14 22 L24 6 Z" fill="white" opacity="0.9"/>
-              <path d="M8 6 L14 16 L20 6 Z" fill="white" opacity="0.5"/>
+              <defs>
+                <linearGradient id="goldGradLogin" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#f0d060"/>
+                  <stop offset="50%" stopColor="#d4af37"/>
+                  <stop offset="100%" stopColor="#b8962e"/>
+                </linearGradient>
+              </defs>
+              <path d="M4 6 L14 22 L24 6 Z" fill="url(#goldGradLogin)" opacity="0.95"/>
+              <path d="M8 6 L14 16 L20 6 Z" fill="url(#goldGradLogin)" opacity="0.5"/>
             </svg>
           </div>
           <div>
-            <span className="login-card__tag">Local Access</span>
-            <h1 className="login-card__title">Funnelby</h1>
+            <span className="login-card__tag">Premium Access</span>
+            <h1 className="login-card__title">RoiMax</h1>
           </div>
         </div>
 
         <div className="login-card__copy">
-          <h2>Entre para abrir o builder.</h2>
-          <p>Prototipação local do canvas de funis com foco na UX.</p>
+          <h2>Entre no seu painel.</h2>
+          <p>Sistema premium de funis com tracking e analytics integrados.</p>
         </div>
 
         <form className="login-card__form" onSubmit={handleSubmit}>
@@ -62,8 +69,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
           {error && <div className="login-card__error">{error}</div>}
 
-          <button type="submit" className="btn btn--primary btn--full btn--lg">
-            Entrar no Funnelby
+          <button type="submit" className="btn btn--gold btn--full btn--lg">
+            Entrar no RoiMax
           </button>
         </form>
       </motion.div>

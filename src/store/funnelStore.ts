@@ -28,6 +28,7 @@ interface FunnelStore {
   archiveFunnel: (funnelId: string) => void
   updateFunnelMeta: (funnelId: string, patch: Partial<Pick<FunnelRecord, 'name' | 'description' | 'type' | 'status' | 'objective'>>) => void
   addNode: (input: StageNodeInput) => void
+  deleteNode: (nodeId: string) => void
   updateSelectedNode: (patch: Partial<FunnelRecord['nodes'][number]['data']>) => void
   updateNodeMetrics: (nodeId: string, metrics: Partial<FunnelRecord['nodes'][number]['data']['metrics']>) => void
   importFunnel: (funnel: FunnelRecord) => void
@@ -160,6 +161,19 @@ export const useFunnelStore = create<FunnelStore>()(
             })
           }),
           selectedNodeId: nextNode.id,
+        }))
+      },
+      deleteNode: (nodeId) => {
+        set((state) => ({
+          funnels: state.funnels.map((funnel) => {
+            if (funnel.id !== state.selectedFunnelId) return funnel
+            return touch({
+              ...funnel,
+              nodes: funnel.nodes.filter((n) => n.id !== nodeId),
+              edges: funnel.edges.filter((e) => e.source !== nodeId && e.target !== nodeId),
+            })
+          }),
+          selectedNodeId: state.selectedNodeId === nodeId ? null : state.selectedNodeId,
         }))
       },
       updateSelectedNode: (patch) => {

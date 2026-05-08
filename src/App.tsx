@@ -31,6 +31,7 @@ function App() {
     archiveFunnel,
     updateFunnelMeta,
     addNode,
+    deleteNode,
     updateSelectedNode,
     setSelectedNodeId,
     onNodesChange,
@@ -113,6 +114,7 @@ function App() {
             funnel={currentFunnel}
             selectedNode={selectedNode}
             onAddNode={handleAddNode}
+            onDeleteNode={deleteNode}
             onSelectNode={setSelectedNodeId}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
