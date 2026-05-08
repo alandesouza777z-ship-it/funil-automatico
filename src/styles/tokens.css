@@ -1,42 +1,49 @@
 :root {
-  /* Background */
-  --bg-body: #0f1117;
-  --bg-sidebar: #161822;
-  --bg-card: #1c1e2a;
-  --bg-card-hover: #22243a;
-  --bg-input: #12141e;
-  --bg-canvas: #131620;
+  /* Background — Deep navy blue luxury */
+  --bg-body: #070b14;
+  --bg-sidebar: #0c1120;
+  --bg-card: #0f1628;
+  --bg-card-hover: #141c36;
+  --bg-input: #0a0f1e;
+  --bg-canvas: #080d18;
 
-  /* Borders */
-  --border: rgba(255, 255, 255, 0.06);
-  --border-subtle: rgba(255, 255, 255, 0.04);
-  --border-hover: rgba(255, 255, 255, 0.12);
-  --border-focus: #6366f1;
+  /* Borders — Gold-tinted borders */
+  --border: rgba(212, 175, 55, 0.10);
+  --border-subtle: rgba(212, 175, 55, 0.06);
+  --border-hover: rgba(212, 175, 55, 0.22);
+  --border-focus: #d4af37;
 
   /* Text */
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #eef2f7;
+  --text-secondary: #8b9dc3;
+  --text-muted: #5a6d8a;
   --text-canvas: #0f172a;
-  --text-canvas-muted: #64748b;
+  --text-canvas-muted: #5a6d8a;
 
-  /* Accent */
-  --accent: #6366f1;
-  --accent-hover: #818cf8;
-  --accent-soft: rgba(99, 102, 241, 0.12);
+  /* Accent — Royal Blue */
+  --accent: #2563eb;
+  --accent-hover: #3b82f6;
+  --accent-soft: rgba(37, 99, 235, 0.14);
+
+  /* Gold */
+  --gold: #d4af37;
+  --gold-light: #f0d060;
+  --gold-soft: rgba(212, 175, 55, 0.12);
+  --gold-glow: rgba(212, 175, 55, 0.25);
 
   /* Sizing */
-  --sidebar-width: 240px;
+  --sidebar-width: 260px;
   --radius-xs: 6px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  /* Shadows — Gold-infused */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(212, 175, 55, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(212, 175, 55, 0.06);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(212, 175, 55, 0.08);
+  --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.15), 0 0 60px rgba(212, 175, 55, 0.05);
 
   /* Fonts */
   --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -44,5 +51,5 @@
 
   /* Transitions */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration: 150ms;
+  --duration: 180ms;
 }
