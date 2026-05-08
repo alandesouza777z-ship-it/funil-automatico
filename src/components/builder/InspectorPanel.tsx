@@ -25,7 +25,9 @@ export function InspectorPanel({ funnel, selectedNode, onUpdateMeta, onUpdateNod
   }
 
   const isQuiz = selectedNode?.data.nodeKind === 'quiz'
-  const quizOptions: string[] = (selectedNode?.data as Record<string, unknown>).quizOptions as string[] ?? ['Opção A', 'Opção B', 'Opção C']
+  const quizOptions: string[] = selectedNode
+    ? ((selectedNode.data as Record<string, unknown>).quizOptions as string[] ?? ['Opção A', 'Opção B', 'Opção C'])
+    : []
 
   const handleQuizOptionChange = (index: number, value: string) => {
     const updated = [...quizOptions]

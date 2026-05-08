@@ -60,10 +60,7 @@ export function BuilderPage({
             <button
               type="button"
               className="btn btn--danger btn--toolbar"
-              onClick={() => {
-                onDeleteNode(selectedNode.id)
-                onSelectNode(null)
-              }}
+              onClick={() => onDeleteNode(selectedNode.id)}
             >
               🗑 Remover
             </button>

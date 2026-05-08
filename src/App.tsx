@@ -29,6 +29,7 @@ function App() {
     createFromTemplate,
     duplicateFunnel,
     archiveFunnel,
+    deleteFunnel,
     updateFunnelMeta,
     addNode,
     deleteNode,
@@ -105,6 +106,7 @@ function App() {
             onOpenFunnel={handleOpenFunnel}
             onDuplicate={duplicateFunnel}
             onArchive={archiveFunnel}
+            onDelete={deleteFunnel}
             onCreateTemplate={createFromTemplate}
           />
         )

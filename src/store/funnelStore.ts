@@ -26,6 +26,7 @@ interface FunnelStore {
   createFromTemplate: (templateId: string) => void
   duplicateFunnel: (funnelId: string) => void
   archiveFunnel: (funnelId: string) => void
+  deleteFunnel: (funnelId: string) => void
   updateFunnelMeta: (funnelId: string, patch: Partial<Pick<FunnelRecord, 'name' | 'description' | 'type' | 'status' | 'objective'>>) => void
   addNode: (input: StageNodeInput) => void
   deleteNode: (nodeId: string) => void
@@ -140,6 +141,16 @@ export const useFunnelStore = create<FunnelStore>()(
             funnel.id === funnelId ? touch({ ...funnel, status: 'Archived' }) : funnel,
           ),
         }))
+      },
+      deleteFunnel: (funnelId) => {
+        set((state) => {
+          const remaining = state.funnels.filter((f) => f.id !== funnelId)
+          return {
+            funnels: remaining,
+            selectedFunnelId: state.selectedFunnelId === funnelId ? (remaining[0]?.id ?? '') : state.selectedFunnelId,
+            selectedNodeId: state.selectedFunnelId === funnelId ? null : state.selectedNodeId,
+          }
+        })
       },
       updateFunnelMeta: (funnelId, patch) => {
         set((state) => ({

@@ -10,6 +10,7 @@ interface DashboardPageProps {
   onOpenFunnel: (funnelId: string) => void
   onDuplicate: (funnelId: string) => void
   onArchive: (funnelId: string) => void
+  onDelete: (funnelId: string) => void
   onCreateTemplate: (templateId: string) => void
 }
 
@@ -20,6 +21,7 @@ export function DashboardPage({
   onOpenFunnel,
   onDuplicate,
   onArchive,
+  onDelete,
   onCreateTemplate,
 }: DashboardPageProps) {
   const activeFunnels = funnels.filter((f) => f.status !== 'Archived').length
@@ -96,6 +98,7 @@ export function DashboardPage({
                   <button type="button" className="btn btn--sm btn--primary" onClick={() => onOpenFunnel(funnel.id)}>Abrir</button>
                   <button type="button" className="btn btn--sm btn--ghost" onClick={() => onDuplicate(funnel.id)}>Duplicar</button>
                   <button type="button" className="btn btn--sm btn--ghost" onClick={() => onArchive(funnel.id)}>Arquivar</button>
+                  <button type="button" className="btn btn--sm btn--danger" onClick={() => onDelete(funnel.id)}>Excluir</button>
                 </div>
               </motion.article>
             ))}

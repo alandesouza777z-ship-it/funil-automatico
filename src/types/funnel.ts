@@ -46,6 +46,7 @@ export type FunnelNodeData = Record<string, unknown> & {
   objective: string
   accent: string
   trackingUrl: string
+  quizOptions?: string[]
   metrics: StageMetrics
 }
 
